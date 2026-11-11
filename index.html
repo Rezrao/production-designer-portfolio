@@ -41,14 +41,35 @@
   section > p.sub { color: var(--muted); margin-bottom: 28px; }
 
   .grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-  figure { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  
+  /* Figure card hover lift effect */
+  figure { 
+    background: var(--card); 
+    border: 1px solid var(--line); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+
   .frame { overflow: hidden; background: #e8eaee; }
   .r45   { aspect-ratio: 4 / 5; }
   .r916  { aspect-ratio: 9 / 16; }
   .r11   { aspect-ratio: 1 / 1; }
   .r169  { aspect-ratio: 16 / 9; }
-  .frame img, .frame video { transition: transform .4s ease; }
-  figure:hover .frame img { transform: scale(1.03); }
+  
+  /* Enhanced smoother and bigger hover zoom for images and videos */
+  .frame img, .frame video { 
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+  }
+  figure:hover .frame img,
+  figure:hover .frame video { 
+    transform: scale(1.08); 
+  }
+
   figcaption { padding: 14px 16px 16px; }
   figcaption strong { display: block; font-weight: 600; }
   figcaption span { font-size: .9rem; color: var(--muted); }
