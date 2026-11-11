@@ -43,7 +43,7 @@
   .grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
   figure { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .frame { overflow: hidden; background: #e8eaee; }
-  .r45 	 { aspect-ratio: 4 / 5;	}
+  .r45   { aspect-ratio: 4 / 5; }
   .r916  { aspect-ratio: 9 / 16; }
   .r11   { aspect-ratio: 1 / 1; }
   .r169  { aspect-ratio: 16 / 9; }
@@ -84,15 +84,13 @@
 
 <main id="top">
 
-  <!-- ===== INTRO: edit your headline and text ===== -->
+  <!-- ===== INTRO ===== -->
   <div class="intro">
     <h1>Production designer for performance ads</h1>
     <p>I turn concepts and AI drafts into clean, launch-ready ads, and adapt them from feed (4:5) to story (9:16) at volume.</p>
   </div>
 
-  <!-- ===== SECTION 1: 4:5 feed ads =====
-       To add a project: copy one <figure>...</figure> block, paste it after another,
-       then change the image path, title, and description. -->
+  <!-- ===== SECTION 1: 4:5 feed ads ===== -->
   <section id="feed">
     <h2>Feed ads</h2>
     <p class="sub">Static 4:5 ads for Meta and Instagram.</p>
@@ -100,16 +98,16 @@
 
       <figure>
         <div class="frame r45"><img src="pictures/1.jpg" alt="Feed ad 1"></div>
-        <figcaption><strong>Sneaker launch</strong><span>Concept ad, 702×676</span></figcaption>
+        <figcaption><strong>Sneaker launch</strong><span>Concept ad, 1080×1350</span></figcaption>
       </figure>
 
       <figure>
-        <div class="frame r45"><img src=C:\Users\Raorez\Desktop\pictures\2.jpg/1080x1920/dfe3ea/2b4de0?text=Feed+Ad+2" alt="Feed ad 2"></div>
-        <figcaption><strong>Coffee promo</strong><span>Concept ad, 1080×1920</span></figcaption>
+        <div class="frame r45"><img src="pictures/2.jpg" alt="Feed ad 2"></div>
+        <figcaption><strong>Coffee promo</strong><span>Concept ad, 1080×1350</span></figcaption>
       </figure>
 
       <figure>
-        <div class="frame r45"><img src="https://placehold.co/800x1000/dfe3ea/2b4de0?text=Feed+Ad+3" alt="Feed ad 3"></div>
+        <div class="frame r45"><img src="pictures/6.jpg" alt="Feed ad 3"></div>
         <figcaption><strong>Fitness bottle</strong><span>Concept ad, 1080×1350</span></figcaption>
       </figure>
 
@@ -123,58 +121,55 @@
     <div class="grid">
 
       <figure>
-        <div class="frame r916"><img src="pictures/2.png" alt="Feed ad 1"></div>
+        <div class="frame r916"><img src="pictures/2.png" alt="Story ad 1"></div>
         <figcaption><strong>Hello World</strong><span>9:16 adaptation, 1080×1920</span></figcaption>
       </figure>
 
       <figure>
-        <div class="frame r916"><img src="pictures/1.png" alt="Feed ad 2"></div>
+        <div class="frame r916"><img src="pictures/1.png" alt="Story ad 2"></div>
         <figcaption><strong>Skin Care</strong><span>9:16 adaptation, 1080×1920</span></figcaption>
       </figure>
 
       <figure>
-        <div class="frame r916"><img src="pictures/6.jpg" alt="Feed ad 3"></div>
+        <div class="frame r916"><img src="pictures/6.jpg" alt="Story ad 3"></div>
         <figcaption><strong>Skin promo</strong><span>9:16 adaptation, 1080×1920</span></figcaption>
       </figure>
 
     </div>
   </section>
 
-  <!-- ===== SECTION 3: AI clean-up (before / after) ===== -->
+  <!-- ===== SECTION 3: AI clean-up ===== -->
   <section id="cleanup">
     <h2>AI image clean-up</h2>
     <p class="sub">Fixing garbled text, artifacts, and odd details in AI-generated images.</p>
     <div class="grid">
 
       <figure>
-        <div class="frame r11"><img src="C:\Users\Raorez\Desktop\pictures\2.jpg=Before" alt="Before clean-up"></div>
+        <div class="frame r11"><img src="pictures/1.jpg" alt="Before clean-up"></div>
         <figcaption><strong>Before</strong><span>Raw AI output</span></figcaption>
       </figure>
 
       <figure>
-        <div class="frame r11"><img src="https://placehold.co/800x800/d9f0e4/1e8449?text=After" alt="After clean-up"></div>
+        <div class="frame r11"><img src="pictures/2.jpg" alt="After clean-up"></div>
         <figcaption><strong>After</strong><span>Clean text and corrected details</span></figcaption>
       </figure>
 
     </div>
   </section>
 
-  <!-- ===== SECTION 4: Video =====
-       Swap the <img> for a video if you like:
-       <video src="videos/reel1.mp4" controls muted playsinline></video> -->
+  <!-- ===== SECTION 4: Video / Banner ===== -->
   <section id="video">
     <h2>Short-form video</h2>
     <p class="sub">Vertical edits with captions and overlays for TikTok and Reels.</p>
     <div class="grid">
 
       <figure>
-        <div class="frame r916"><img src="https://placehold.co/720x1280/dfe3ea/2b4de0?text=Reel+1" alt="Reel 1 preview"></div>
+        <div class="frame r916"><img src="pictures/1.png" alt="Reel preview"></div>
         <figcaption><strong>Product reel</strong><span>15 seconds, auto-captions</span></figcaption>
       </figure>
 
-      <!-- Wide item example (banner). Delete if not needed. -->
       <figure class="wide">
-        <div class="frame r169"><img src="pictures/97.png" alt="Feed ad 3"></div>
+        <div class="frame r169"><img src="pictures/97.png" alt="Social banner"></div>
         <figcaption><strong>Social banner</strong><span>Facebook cover design</span></figcaption>
       </figure>
 
@@ -195,7 +190,6 @@
     <h2>Contact</h2>
     <p class="sub">Open to remote production design roles.</p>
     <a class="btn" href="https://linkedin.com/in/khurram-hm-47179b420" target="_blank" rel="noopener">Message on LinkedIn</a>
-    <!-- Add email: <a class="btn" href="mailto:you@example.com">Email me</a> -->
   </section>
 
 </main>
