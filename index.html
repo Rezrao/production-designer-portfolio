@@ -41,13 +41,13 @@
   section > p.sub { color: var(--muted); margin-bottom: 28px; }
 
   .grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-  
+
   /* Figure card hover lift effect */
-  figure { 
-    background: var(--card); 
-    border: 1px solid var(--line); 
-    border-radius: 10px; 
-    overflow: hidden; 
+  figure {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   figure:hover {
@@ -60,14 +60,14 @@
   .r916  { aspect-ratio: 9 / 16; }
   .r11   { aspect-ratio: 1 / 1; }
   .r169  { aspect-ratio: 16 / 9; }
-  
+
   /* Enhanced hover zoom for images and videos */
-  .frame img, .frame video { 
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+  .frame img, .frame video {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   }
   figure:hover .frame img,
-  figure:hover .frame video { 
-    transform: scale(1.08); 
+  figure:hover .frame video {
+    transform: scale(1.08);
   }
 
   figcaption { padding: 14px 16px 16px; }
@@ -77,6 +77,43 @@
   /* wide items (e.g. banners) take two columns */
   .wide { grid-column: span 2; }
   @media (max-width: 560px) { .wide { grid-column: span 1; } }
+
+  /* ---------- Before / after slider ---------- */
+  .ba {
+    --pos: 50%;
+    position: relative;
+    max-width: 560px;
+    aspect-ratio: 1 / 1;            /* change to 4 / 5 if your images are 4:5 */
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #e8eaee;
+    touch-action: pan-y;
+  }
+  .ba img { position: absolute; inset: 0; }
+  .ba .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .ba-line {
+    position: absolute; top: 0; bottom: 0; left: var(--pos);
+    width: 3px; margin-left: -1.5px; background: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,.4); pointer-events: none;
+  }
+  .ba-line::after {
+    content: "\2194";
+    position: absolute; top: 50%; left: 50%;
+    width: 44px; height: 44px; margin: -22px 0 0 -22px;
+    border-radius: 50%; background: #fff; color: var(--ink);
+    display: grid; place-items: center; font-size: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.35);
+  }
+  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+  .ba:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .ba-tag {
+    position: absolute; bottom: 14px; padding: 4px 12px; border-radius: 999px;
+    background: rgba(20,22,26,.75); color: #fff; font-size: .85rem; pointer-events: none;
+  }
+  .ba-tag.l { left: 14px; }
+  .ba-tag.r { right: 14px; }
+  .ba-caption { margin-top: 14px; font-size: .9rem; color: var(--muted); max-width: 560px; }
 
   /* ---------- Skills + Contact ---------- */
   .skills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
@@ -171,27 +208,22 @@
     </div>
   </section>
 
-  <!-- ===== SECTION 3: AI clean-up ===== -->
+  <!-- ===== SECTION 3: AI clean-up (before / after slider) =====
+       before = pictures/1.jpg, after = pictures/2.jpg
+       Both images must be the same size and shape, or the slider will not line up. -->
   <section id="cleanup">
     <h2>AI image clean-up</h2>
-    <p class="sub">Fixing garbled text, artifacts, and odd details in AI-generated images.</p>
-    <div class="grid">
+    <p class="sub">Fixing garbled text, artifacts, and odd details in AI-generated images. Drag to compare.</p>
 
-      <figure>
-        <a href="pictures/1.jpg" target="_blank" rel="noopener noreferrer">
-          <div class="frame r11"><img src="pictures/1.jpg" alt="Before clean-up"></div>
-        </a>
-        <figcaption><strong>Before</strong><span>Raw AI output</span></figcaption>
-      </figure>
-
-      <figure>
-        <a href="pictures/2.jpg" target="_blank" rel="noopener noreferrer">
-          <div class="frame r11"><img src="pictures/2.jpg" alt="After clean-up"></div>
-        </a>
-        <figcaption><strong>After</strong><span>Clean text and corrected details</span></figcaption>
-      </figure>
-
+    <div class="ba" id="ba">
+      <img src="pictures/2.jpg" alt="After: clean text and corrected details">
+      <img class="ba-before" src="pictures/1.jpg" alt="Before: raw AI output">
+      <span class="ba-tag l">Before</span>
+      <span class="ba-tag r">After</span>
+      <div class="ba-line"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
     </div>
+    <p class="ba-caption">Left: raw AI output. Right: clean text and corrected details.</p>
   </section>
 
   <!-- ===== SECTION 4: Video / Banner ===== -->
@@ -243,6 +275,15 @@
 </main>
 
 <footer>© <span id="y"></span> Khurram Hameed</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Before / after slider
+  const ba = document.getElementById('ba');
+  ba.querySelector('input').addEventListener('input', e => {
+    ba.style.setProperty('--pos', e.target.value + '%');
+  });
+</script>
 </body>
 </html>
