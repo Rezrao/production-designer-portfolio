@@ -21,7 +21,7 @@
   body { font-family: 'Instrument Sans', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
   a { color: inherit; text-decoration: none; }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
   /* ---------- Header ---------- */
   header { border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 10; }
@@ -47,7 +47,7 @@
   .r916  { aspect-ratio: 9 / 16; }
   .r11   { aspect-ratio: 1 / 1; }
   .r169  { aspect-ratio: 16 / 9; }
-  .frame img { transition: transform .4s ease; }
+  .frame img, .frame video { transition: transform .4s ease; }
   figure:hover .frame img { transform: scale(1.03); }
   figcaption { padding: 14px 16px 16px; }
   figcaption strong { display: block; font-weight: 600; }
@@ -157,26 +157,21 @@
     </div>
   </section>
 
-<!-- ===== SECTION 4: Video / Banner ===== -->
-<section id="video">
-  <h2>Short-form video</h2>
-  <p class="sub">Vertical edits with captions and overlays for TikTok and Reels.</p>
-  <div class="grid">
+  <!-- ===== SECTION 4: Video / Banner ===== -->
+  <section id="video">
+    <h2>Short-form video</h2>
+    <p class="sub">Vertical edits with captions and overlays for TikTok and Reels.</p>
+    <div class="grid">
 
-    <figure>
-      <a href="pictures/my clip.mp4" target="_blank" rel="noopener noreferrer">
+      <figure>
         <div class="frame r916">
-          <img src="pictures/1.png" alt="Reel preview">
+          <video src="pictures/122.mp4" autoplay muted loop playsinline poster="pictures/1.png">
+            Your browser does not support the video tag.
+          </video>
         </div>
-      </a>
-      <figcaption><strong>Product reel</strong><span>15 seconds, auto-captions</span></figcaption>
-    </figure>
+        <figcaption><strong>Product reel</strong><span>15 seconds, auto-captions</span></figcaption>
+      </figure>
 
-  </div>
-</section>
-
-  </div>
-</section>
       <figure class="wide">
         <div class="frame r169"><img src="pictures/97.png" alt="Social banner"></div>
         <figcaption><strong>Social banner</strong><span>Facebook cover design</span></figcaption>
@@ -194,7 +189,7 @@
     </ul>
   </section>
 
- <!-- ===== CONTACT ===== -->
+  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <h2>Contact</h2>
     <p class="sub">Open to remote production design roles.</p>
