@@ -18,6 +18,7 @@ const myGalleryFiles = [
 "after.jpg",
 "before.jpg",
 "contact.png",
+"logo.png",
 "hero.png",
 "project-1.png",
 "service.png",
