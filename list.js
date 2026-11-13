@@ -5,7 +5,6 @@ const myGalleryFiles = [
 "133.png",
 "155.jpg",
 "2.jpg",
-"2.png",
 "22.png",
 "3.jpg",
 "4.jpg",
