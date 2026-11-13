@@ -113,16 +113,9 @@
     <div class="masonry" id="auto-gallery">
 
       <figure class="card">
-        <div class="media-wrap">
-          <video src="videos/sample.mp4" controls muted loop playsinline preload="metadata"></video>
-        </div>
-        <figcaption><strong>Motion Ad / Reel</strong><span>Plays directly in the feed at original ratio</span></figcaption>
-      </figure>
-
-      <figure class="card">
         <div class="ba">
-          <img src="pictures/after.jpg" alt="After retouching">
-          <img class="ba-before" src="pictures/before.jpg" alt="Before retouching">
+          <img src="https://github.io" alt="After retouching">
+          <img class="ba-before" src="https://github.io" alt="Before retouching">
           <div class="ba-line"></div>
           <span class="ba-tag l">Before</span>
           <span class="ba-tag r">After</span>
@@ -139,42 +132,39 @@
   © 2026 Khurram Hameed — Production Designer
 </footer>
 
+<script src="https://github.io"></script>
 <script>
-  const username = "rezrao";
-  const repo = "production-designer-portfolio";
-  const folder = "pictures";
-
+  const baseURL = "https://github.io";
   const gallery = document.getElementById("auto-gallery");
 
-  fetch(`https://github.com{username}/${repo}/contents/${folder}`)
-    .then(async res => {
-      const data = await res.json();
-      if (!res.ok) throw new Error(`GitHub Error (${res.status}): ${data.message}`);
-      return data;
-    })
-    .then(files => {
-      const images = files.filter(file => /\.(jpe?g|png|webp|gif)$/i.test(file.name));
-      if (images.length === 0) {
-        gallery.insertAdjacentHTML("beforeend", `<p style="color:red;">Connected, but 0 images found in "${folder}".</p>`);
-        return;
-      }
-      images.forEach(file => {
-        const title = file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ");
+  if (typeof myGalleryFiles !== "undefined") {
+    myGalleryFiles.forEach(fileName => {
+      const title = "Design " + fileName.replace(/\.[^/.]+$/, "");
+      const isVideo = /\.mp4$/i.test(fileName);
+
+      if (isVideo) {
         gallery.insertAdjacentHTML("beforeend", `
           <figure class="card">
-            <a href="${file.download_url}" target="_blank" rel="noopener noreferrer">
-              <div class="media-wrap">
-                <img src="${file.download_url}" alt="${title}" loading="lazy">
-              </div>
-            </a>
-            <figcaption><strong style="text-transform: capitalize;">${title}</strong><span>Design showcase</span></figcaption>
+            <div class="media-wrap">
+              <video src="${baseURL}${fileName}" controls muted loop playsinline preload="metadata"></video>
+            </div>
+            <figcaption><strong>${title}</strong><span>Motion Ad / Reel</span></figcaption>
           </figure>
         `);
-      });
-    })
-    .catch(err => {
-      gallery.insertAdjacentHTML("beforeend", `<p style="color:red; padding:16px; background:#fee; border-radius:8px;"><strong>Debug:</strong> ${err.message}</p>`);
+      } else {
+        gallery.insertAdjacentHTML("beforeend", `
+          <figure class="card">
+            <a href="${baseURL}${fileName}" target="_blank" rel="noopener noreferrer">
+              <div class="media-wrap">
+                <img src="${baseURL}${fileName}" alt="${title}" loading="lazy">
+              </div>
+            </a>
+            <figcaption><strong>${title}</strong><span>Design showcase</span></figcaption>
+          </figure>
+        `);
+      }
     });
+  }
 </script>
 
 </body>
