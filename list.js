@@ -1,0 +1,19 @@
+const myGalleryFiles = [
+  "1.png",
+  "122.mp4",
+  "132.jpg",
+  "133.png",
+  "155.jpg",
+  "2.jpg",
+  "2.png",
+  "22.png",
+  "3.jpg",
+  "3.png",
+  "4.jpg",
+  "5.jpg",
+  "6.jpg",
+  "64.jpg",
+  "7.webp",
+  "9.png",
+  "97.png"
+];
