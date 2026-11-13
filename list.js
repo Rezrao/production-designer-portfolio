@@ -1,4 +1,4 @@
-const pictures = [
+const myGalleryFiles = [
   "1.png",
   "122.mp4",
   "132.jpg",
