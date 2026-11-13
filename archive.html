@@ -132,12 +132,18 @@
   © 2026 Khurram Hameed — Production Designer
 </footer>
 
-<script src="https://github.io"></script>
+<script src="https://rezrao.github.io/production-designer-portfolio/list.js"></script>
 <script>
   const baseURL = "https://github.io";
   const gallery = document.getElementById("auto-gallery");
 
-  if (typeof myGalleryFiles !== "undefined") {
+  if (typeof myGalleryFiles === "undefined") {
+    gallery.insertAdjacentHTML("beforeend", `
+      <p style="color:#b00020; background:#ffeef0; padding:16px; border-radius:8px; font-weight:500;">
+        Error: <code>list.js</code> did not load or does not define <code>myGalleryFiles</code>.
+      </p>
+    `);
+  } else {
     myGalleryFiles.forEach(fileName => {
       const title = "Design " + fileName.replace(/\.[^/.]+$/, "");
       const isVideo = /\.mp4$/i.test(fileName);
